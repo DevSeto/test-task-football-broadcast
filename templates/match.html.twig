@@ -110,6 +110,7 @@
                 <tr>
                     <th>#</th>
                     <th></th>
+                    <th></th>
                     <th>Имя</th>
                     <th></th>
                 </tr>
@@ -121,9 +122,16 @@
                             {{ player.number }}
                         </td>
                         <td>
+                            {% if player.yellowCard %}
+                                <img src="https://www.soccer.ru/sites/all/themes/newtheme/images/events-icons/card.png">
+                            {% elseif player.redCard %}
+                                <img src="https://www.soccer.ru/sites/all/themes/newtheme/images/events-icons/yellow_red.png">
+                            {% endif %}
+                        </td>
+                        <td>
                             {% if player.goal > 0 %}
                                 {% for i in 0..player.goal-1 %}
-                                    <img src="https://www.soccer.ru/sites/all/themes/newtheme/images/events-icons/goal.png">
+                                     <img src="https://www.soccer.ru/sites/all/themes/newtheme/images/events-icons/goal.png">
                                 {% endfor %}
                             {% endif %}
                         </td>
