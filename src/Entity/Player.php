@@ -12,12 +12,14 @@ class Player
     private bool $yellowCard;
     private bool $redCard;
     private string $playStatus;
+    private string $position;
     private int $inMinute;
     private int $outMinute;
 
-    public function __construct(int $number, string $name)
+    public function __construct(int $number, string $name, string $position)
     {
         $this->number = $number;
+        $this->position = $position;
         $this->name = $name;
         $this->playStatus = self::BENCH_PLAY_STATUS;
         $this->goals = 0;
@@ -30,6 +32,11 @@ class Player
     public function getNumber(): int
     {
         return $this->number;
+    }
+
+    public function getPosition(): string
+    {
+        return $this->position;
     }
 
     public function getName(): string

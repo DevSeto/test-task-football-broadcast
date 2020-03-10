@@ -52,7 +52,10 @@
                     </div>
                 </div>
             </div>
-
+            {% import _self as render %}
+            <div class="col-md-12">
+                {{ render.renderTeamStatistics(match.homeTeam, match.awayTeam) }}
+            </div>
             <div class="card">
                 <div class="card-header">
                     Трансляция
@@ -146,5 +149,80 @@
                 </tbody>
             </table>
         </div>
+    </div>
+{% endmacro %}
+
+
+{% macro renderTeamStatistics(hometeam, awayTeam) %}
+        <div class="card-header text-center">
+            <div>
+                <strong>Статистика</strong>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table text-center ">
+                <thead>
+                <tr>
+                    <th>{{ hometeam.name }}</th>
+                    <th>Время</th>
+                    <th>{{ awayTeam.name }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            Позиция
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ hometeam.getPlayersPositionTime('В') }}
+                        </td>
+                        <td>
+                            Вратарь
+                        </td>
+                        <td>
+                            {{ awayTeam.getPlayersPositionTime('В') }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ hometeam.getPlayersPositionTime('З') }}
+                        </td>
+                        <td>
+                            Защита
+                        </td>
+                        <td>
+                            {{ awayTeam.getPlayersPositionTime('З') }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ hometeam.getPlayersPositionTime('П') }}
+                        </td>
+                        <td>
+                            Полузащита
+                        </td>
+                        <td>
+                            {{ awayTeam.getPlayersPositionTime('П') }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ hometeam.getPlayersPositionTime('Н') }}
+                        </td>
+                        <td>
+                            Нападение
+                        </td>
+                        <td>
+                            {{ awayTeam.getPlayersPositionTime('Н') }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
 {% endmacro %}

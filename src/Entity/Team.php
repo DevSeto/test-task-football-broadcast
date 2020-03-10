@@ -51,6 +51,24 @@ class Team
         });
     }
 
+    public function getPlayersByPosition(string $position): array
+    {
+        return array_filter($this->players, function (Player $player) use ($position) {
+            return $player->getPosition() == $position;
+        });
+    }
+
+    public function getPlayersPositionTime( string $position ): int
+    {
+        $totalTime = 0;
+
+        foreach($this->getPlayersByPosition($position) as $player){
+            $totalTime = $totalTime + $player->getPlayTime();
+        };
+
+        return $totalTime;
+    }
+
     public function getPlayers(): array
     {
         return $this->players;
