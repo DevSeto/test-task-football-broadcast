@@ -100,7 +100,7 @@ class Player
 
     public function goToPlay(int $minute): void
     {
-        $this->inMinute = $minute;
+        $this->inMinute = $minute - 1;
         $this->playStatus = self::PLAY_PLAY_STATUS;
     }
 
